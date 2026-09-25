@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --color-nerd-bg: #0a0a0f;
+  --color-nerd-card: #12121a;
+  --color-nerd-accent: #6366f1;
+  --color-nerd-accent-light: #818cf8;
+  --color-nerd-text: #e2e8f0;
+  --color-nerd-muted: #64748b;
+  --color-nerd-border: #1e293b;
+  --color-nerd-success: #22c55e;
+  --color-nerd-warning: #f59e0b;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+}
+
+body {
+  background-color: var(--color-nerd-bg);
+  color: var(--color-nerd-text);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.3s ease-out forwards;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Force emoji rendering for flag icons */
+.emoji-flag {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+}
+
+/* Twemoji images — render inline like text */
+img.emoji {
+  height: 1.2em;
+  width: 1.2em;
+  margin: 0 0.05em 0 0.1em;
+  vertical-align: -0.15em;
+  display: inline;
+}
+img.emoji-flag-img {
+  height: 1.4em;
+  width: 1.4em;
+  vertical-align: -0.2em;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-nerd-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-nerd-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-nerd-muted);
+}
+
+/* Mobile-first responsive adjustments */
+@media (max-width: 640px) {
+  .subtitle-text {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+}
+
+/* Smooth sidebar transition */
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+/* Touch-friendly targets */
+@media (hover: none) and (pointer: coarse) {
+  button, a, [role="button"] {
+    min-height: 44px;
+  }
+}
